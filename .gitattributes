@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 # Auto detect text files and perform LF normalization
 * text=auto
+=======
+*.pbxproj -text
+>>>>>>> face0f1... Initial commit
