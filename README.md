@@ -1,2 +1,2 @@
-# my potfolio
- to create my potfolio
+# Telemedicine react native application
+ To build and practice my skills
