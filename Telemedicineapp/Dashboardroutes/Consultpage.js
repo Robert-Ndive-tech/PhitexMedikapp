@@ -15,13 +15,42 @@ import {
 const Consultant = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.consult}>
-        <Text style={styles.Text}>Consultation History</Text>
-        <TouchableOpacity>
-          <Text style={styles.consult1}>View</Text>
+      <View style={styles.container2}>
+        <TouchableOpacity style={styles.consult}>
+          <Text style={styles.Text}>Consultation History</Text>
+          <TouchableOpacity>
+            <Text style={styles.consult1}>View</Text>
+          </TouchableOpacity>
+          <Text style={styles.Text1}>Check out Here are your detail...</Text>
         </TouchableOpacity>
-        <Text style={styles.Text1}>Check out Here are your detail...</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.consult}>
+          <Text style={styles.Text}>Upcoming Consultations</Text>
+          <TouchableOpacity>
+            <Text style={styles.consult1}>View</Text>
+          </TouchableOpacity>
+          <Text style={styles.Text1}>
+            Check out Here are your upcoming Consultations
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container1}>
+        <Text style={styles.Text2}>Who do you want to consult with?</Text>
+        <TouchableOpacity style={styles.consult2}>
+          <Text style={styles.Text2}>Doctor</Text>
+        </TouchableOpacity>
+        <Text style={styles.Text3}>
+          Click here to consult to consult with Doctor on Medik
+        </Text>
+        <TouchableOpacity style={styles.consult2}>
+          <Text style={styles.Text2}>Consult AI</Text>
+        </TouchableOpacity>
+        <Text style={styles.Text3}>
+          Click here to consult to with Medik's AI assistant
+        </Text>
+        <TouchableOpacity style={styles.consult3}>
+          <Text style={styles.Text2}>Continue</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -35,23 +64,62 @@ const styles = StyleSheet.create({
     alignItems: "Top",
     justifyContent: "left",
   },
+  container1: {
+    flex: 2,
+  },
+  container2: {
+    marginTop: "5%",
+    flex: 2,
+  },
+  consult2: {
+    backgroundColor: "#AA0F00",
+    margin: 15,
+    marginLeft: 55,
+    marginRight: 55,
+    padding: 10,
+    paddingBottom: 4,
+    paddingTop: 4,
+    borderRadius: 20,
+  },
+
+  consult3: {
+    backgroundColor: "#4CAF50",
+    margin: 15,
+    marginLeft: 45,
+    marginRight: 45,
+    padding: 10,
+    paddingBottom: 4,
+    paddingTop: 4,
+    borderRadius: 8,
+  },
   title: {
     fontsize: 20,
     marginTop: 150,
     fontWeight: "bold",
-    marginBottom: 40,
     color: "#333",
     textAlign: "center",
   },
   Text: {
     fontSize: 20,
     color: "#00AA00FF",
-    alignContent: "center",
     marginLeft: "20%",
   },
   Text1: {
     alignContent: "center",
     marginLeft: "20%",
+    color: "#a50",
+  },
+  Text2: {
+    fontWeight: "bold",
+    fontSize: 17,
+    textAlign: "center",
+    marginBottom: 10,
+    marginTop: 0,
+    padding: 0,
+  },
+  Text3: {
+    fontSize: 11,
+    textAlign: "center",
   },
   image: {
     width: 200,
@@ -70,8 +138,7 @@ const styles = StyleSheet.create({
   consult: {
     backgroundColor: "#00AA0050",
     marginTop: 10,
-    padding: 10,
-
+    padding: 5,
     justifyContent: "center",
     width: "98%",
     borderRadius: 20,

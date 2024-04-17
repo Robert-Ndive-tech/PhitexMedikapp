@@ -6,7 +6,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bug Ninza</Text>
-      <Image style={styles.image} source={require("./assets/BugNinza.png")} />
 
       <Text style={styles.description}>Best Platform for programming</Text>
       <StatusBar style="auto" />

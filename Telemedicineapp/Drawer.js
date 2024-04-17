@@ -1,14 +1,12 @@
 import React from "react";
 import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
 import { NavigationContainer } from "@react-navigation/native";
 import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "react-native-vector-icons";
 import Dashboard from "./Dashboard";
-import MyCircularTouchableOpacity from "../Animation";
 
 const Drawer = createDrawerNavigator();
 

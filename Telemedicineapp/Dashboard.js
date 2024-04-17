@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "../../ios/homescreen";
-import DetailsScreen from "../../ios/Detailscreen";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon1 from "react-native-vector-icons/MaterialIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -23,10 +21,7 @@ import {
   Animated,
   LayoutAnimation,
 } from "react-native";
-import MyCircularTouchableOpacity from "../../ios/Animation";
-import MyComponent from "../../ios/Icons";
-import MyDrawer from "../Drawer";
-import Medikdrawer from "./Drawer";
+
 import Homepage from "./Dashboardroutes/Homepage";
 import Consultant from "./Dashboardroutes/Consultpage";
 import Research from "./Dashboardroutes/Researchpage";
@@ -60,7 +55,7 @@ export default function Dashboard() {
               iconName = focused ? "home" : "home"; // Adjust icon names based on your icon library
             } else if (route.name === "Consult") {
               iconName = focused ? "settings" : "settings"; // Adjust icon names based on your icon library
-            } else if (route.name === "Research") {
+            } else if (route.name === "Record") {
               iconName = focused ? "edit" : "edit";
             } else if (route.name === "Facilities") {
               iconName = focused ? "search" : "search";
@@ -76,7 +71,7 @@ export default function Dashboard() {
       >
         <Tab.Screen name="Home" component={Homepage} />
         <Tab.Screen name="Consult" component={Consultant} />
-        <Tab.Screen name="Research" component={Research} />
+        <Tab.Screen name="Record" component={Research} />
         <Tab.Screen name="Facilities" component={Facilities} />
         <Tab.Screen name="Assistant" component={Assistantpage} />
       </Tab.Navigator>
