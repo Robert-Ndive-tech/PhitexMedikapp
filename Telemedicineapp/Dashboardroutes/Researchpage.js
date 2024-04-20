@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useCallback } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -14,30 +14,99 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ImageCarousel from "./Imagestockpile";
 
 const Research = () => {
+  const [info, setInfo] = useState(false);
+  const [treat, setTreat] = useState(false);
+  const [Change, setChange] = useState(1);
+  const [file, setFile] = useState(false);
+  const [sfile, setSfile] = useState("");
+  //Animation codes
+  const [isVisible, setIsVisible] = useState(false);
+  const fadeIn = () => {
+    Animated.timing(opacity, {
+      toValue: 1, // Animate to opacity 1
+      duration: 1000, // Animation duration in milliseconds
+      useNativeDriver: true, // Optimize for performance (optional)
+    }).start();
+  };
+
+  const toggleVisibility = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (file || info) {
+      setFile(false);
+      setInfo(false);
+    }
+    setTreat(true);
+  };
+  const toggleVisibility1 = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (file || treat) {
+      setFile(false);
+      setTreat(false);
+    }
+    setInfo(true);
+  };
+
+  const toggleVisibility2 = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (info || treat) {
+      setInfo(false);
+      setTreat(false);
+    }
+    setFile(true);
+  };
+
   return (
     <View style={styles.container}>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Component1"
-          component={Personal_info}
-          // Optional: Customize header options (e.g., title)
-          options={{ title: "Component 1" }}
-        />
-        <Stack.Screen
-          name="Component2"
-          component={Treatment}
-          // Optional: Customize header options
-          options={{ title: "Component 2" }}
-        />
-        <Stack.Screen
-          name="Component3"
-          component={File}
-          // Optional: Customize header options
-          options={{ title: "Component 3" }}
-        />
-      </Stack.Navigator>
+      <View style={styles.container1}>
+        <TouchableOpacity onPress={toggleVisibility1}>
+          <Text style={styles.text}>Personal Info</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toggleVisibility}>
+          <Text style={styles.text}>Treatment </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toggleVisibility2}>
+          <Text style={styles.text}>Files</Text>
+        </TouchableOpacity>
+      </View>
+
+      {info && (
+        <Animated.View>
+          <View style={styles.container2}>
+            <Text style={styles.text1}>Height</Text>
+            <TextInput style={styles.TextInput} />
+          </View>
+          <View style={styles.container2}>
+            <Text style={styles.text1}>Weight</Text>
+            <TextInput style={styles.TextInput} />
+          </View>
+          <View style={styles.container2}>
+            <Text style={styles.text1}>Allergies</Text>
+            <TextInput style={styles.TextInput} />
+          </View>
+          <View style={styles.container2}>
+            <Text style={styles.text1}>Symptoms</Text>
+            <TextInput style={styles.TextInput} />
+          </View>
+          <View style={styles.container2}>
+            <Text style={styles.text1}>Major medical conditions</Text>
+            <TextInput style={styles.TextInput} />
+          </View>
+        </Animated.View>
+      )}
+      {file && (
+        <Animated.View>
+          <TextInput placeholder="search" style={styles.TextInput1} />
+          <Text style={styles.text1}>Files will come from backend</Text>
+        </Animated.View>
+      )}
+      {treat && (
+        <Animated.View>
+          <Text style={styles.text1}>Here is Your Treatment page</Text>
+        </Animated.View>
+      )}
     </View>
   );
 };
@@ -45,10 +114,59 @@ const Research = () => {
 export default Research;
 
 const styles = StyleSheet.create({
+  container1: {
+    justifyContent: "center", // Align children vertically
+    alignItems: "center",
+    flexDirection: "row",
+    borderBottomColor: "#b5adab", // Change the color as needed
+    borderBottomWidth: 1, // Adjust the thickness of the line
+    marginVertical: 10,
+  },
   container: {
+    backgroundColor: "#273b45",
     flex: 1,
+  },
+  TextInput: {
+    backgroundColor: "transparent",
+
+    width: "80%",
+    height: 40,
+    padding: 0,
+    color: "#b5adab",
+  },
+
+  TextInput1: {
+    backgroundColor: "transparent",
+    color: "black",
+    width: "80%",
+    height: 35,
+    padding: 0,
+    marginLeft: 20,
+    borderRadius: 20,
+    borderColor: "black",
+    borderWidth: 1,
+    textAlign: "center",
+    color: "#b5adab",
+  },
+  container2: {
     flexDirection: "column",
-    backgroundColor: "white",
+    borderBottomColor: "#b5adab", // Change the color as needed
+    borderBottomWidth: 1, // Adjust the thickness of the line
+    marginVertical: 10,
+    paddingTop: 0,
+    color: "#b5adab",
+  },
+  text1: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#b5adab",
+  },
+  text: {
+    fontSize: 20,
+    marginBottom: 10,
+    marginRight: 40,
+    fontWeight: "bold",
+    color: "#b5adab",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -66,28 +184,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     color: "#333",
     textAlign: "center",
-  },
-  image: {
-    width: 200,
-    height: 200,
-    resizeMode: "contain",
-    marginLeft: "25%", // Adjust the resizeMode as needed
-  },
-  input: {
-    width: "50%",
-    height: "20em",
-    backgroundColor: "#00AAAA",
-    marginLeft: 10,
-    textAlign: "center",
-    marginTop: "50%",
-    marginLeft: "25%",
-  },
-  button: {
-    display: "flex",
-    width: "10",
-    marginLeft: "25%",
-    borderRadius: 8,
-    backgroundColor: "#9ACD32",
   },
 });
 const HorizontalStack = ({ navigation }) => {
@@ -136,3 +232,12 @@ const Treatment = () => {
 const File = () => {
   return <Text>Hi i am third component</Text>;
 };
+
+//USING USECALLBACK()
+/*const handlePress = useCallback(() => {
+    setInfo(true);
+    if (info) {
+      setInfo(!info);
+    }
+    console.log(info);
+  }, []);*/

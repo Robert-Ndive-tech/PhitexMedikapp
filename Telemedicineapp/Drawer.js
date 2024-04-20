@@ -18,19 +18,7 @@ function Medikdrawer() {
         <Drawer.Navigator
           drawerContent={(props) => <CustomDrawerContent {...props} />}
         >
-          <Drawer.Screen
-            name="!Welcome to the Medik Hospital!"
-            component={Dashboard}
-            options={{
-              drawerIcon: () => (
-                <MaterialCommunityIcons
-                  name="newspaper"
-                  size={24}
-                  color="black"
-                />
-              ),
-            }}
-          />
+          <Drawer.Screen name="PHITEXMEDIK" component={Dashboard} />
           <Drawer.Screen name="Article" component={SettingsScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
@@ -190,5 +178,18 @@ const HomeStackNavigator = () => {
       <Stack.Screen name="Details" component={DetailsScreen} />
       {/* Add other screens for your stack navigation */}
     </Stack.Navigator>
+  );
+};
+
+const CustomHeader = ({ title }) => {
+  return (
+    // Optionally display a custom title or icon here based on screen name
+    <View
+      style={{
+        backgroundColor: blue,
+      }}
+    >
+      {/* Custom header content (if desired) */}
+    </View>
   );
 };

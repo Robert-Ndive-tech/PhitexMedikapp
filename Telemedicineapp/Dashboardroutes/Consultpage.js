@@ -60,7 +60,7 @@ export default Consultant;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#273b45",
     alignItems: "Top",
     justifyContent: "left",
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   consult2: {
-    backgroundColor: "#AA0F00",
+    backgroundColor: "transparent",
     margin: 15,
     marginLeft: 55,
     marginRight: 55,
@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     paddingTop: 4,
     borderRadius: 20,
+    borderColor: "black",
+    borderWidth: 1,
   },
 
   consult3: {
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
   Text1: {
     alignContent: "center",
     marginLeft: "20%",
-    color: "#a50",
+    color: "#b5adab",
   },
   Text2: {
     fontWeight: "bold",

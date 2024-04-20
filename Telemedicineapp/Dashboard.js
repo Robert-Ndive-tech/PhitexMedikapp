@@ -27,6 +27,7 @@ import Consultant from "./Dashboardroutes/Consultpage";
 import Research from "./Dashboardroutes/Researchpage";
 import Facilities from "./Dashboardroutes/Facilitiespage";
 import Assistantpage from "./Dashboardroutes/Asssitantpage";
+import ImageCarousel from "./Dashboardroutes/Imagestockpile";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -69,11 +70,31 @@ export default function Dashboard() {
           },
         })}
       >
-        <Tab.Screen name="Home" component={Homepage} />
-        <Tab.Screen name="Consult" component={Consultant} />
-        <Tab.Screen name="Record" component={Research} />
-        <Tab.Screen name="Facilities" component={Facilities} />
-        <Tab.Screen name="Assistant" component={Assistantpage} />
+        <Tab.Screen
+          name="Home"
+          options={{ headerShown: false }}
+          component={Homepage}
+        />
+        <Tab.Screen
+          name="Consult"
+          options={{ headerShown: false }}
+          component={Consultant}
+        />
+        <Tab.Screen
+          name="Record"
+          options={{ headerShown: false }}
+          component={Research}
+        />
+        <Tab.Screen
+          name="Facilities"
+          options={{ headerShown: false }}
+          component={ImageCarousel}
+        />
+        <Tab.Screen
+          name="Assistant"
+          options={{ headerShown: false }}
+          component={Assistantpage}
+        />
       </Tab.Navigator>
     </View>
   );

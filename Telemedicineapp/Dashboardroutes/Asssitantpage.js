@@ -15,7 +15,7 @@ import {
 const Assistantpage = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.container}>MEdik's AI Assistant</Text>
+      <Text style={styles.container}>Phitex AI Assistant</Text>
       <ChatBox />
     </View>
   );
@@ -26,7 +26,7 @@ export default Assistantpage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#00AAAA",
+    backgroundColor: "#273b45",
     alignItems: "Top",
     justifyContent: "center",
     marginTop: "20px",

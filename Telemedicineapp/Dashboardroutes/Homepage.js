@@ -10,10 +10,22 @@ import {
   Alert,
   Animated,
   LayoutAnimation,
+  ImageBackground,
 } from "react-native";
+import AnimatedGlowText from "./Animatedtex";
 
 const Homepage = () => {
-  return <View></View>;
+  return (
+    <ImageBackground
+      source={require("../../assets/medik4.png")} // Replace with your image path
+      style={styles.container}
+      resizeMode="cover"
+    >
+      <View style={styles.content}>
+        <AnimatedGlowText />
+      </View>
+    </ImageBackground>
+  );
 };
 
 export default Homepage;
@@ -25,6 +37,11 @@ const styles = StyleSheet.create({
     alignItems: "Top",
     justifyContent: "left",
     marginTop: "20px",
+  },
+  content: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background (optional)
+    padding: 20,
+    borderRadius: 10, // Rounded corners (optional)
   },
   title: {
     fontsize: 20,
